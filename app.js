@@ -2,7 +2,7 @@ import cors from 'cors';
 import express, { urlencoded } from 'express';
 import dotenv from 'dotenv';
 import { createServer } from 'http';
-import bodyParser from 'body-parser';
+// import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import { sessionMiddleware, store } from './utils/sessionMiddleware.js';
 import connectDB from "./utils/connectDB.js";
@@ -21,7 +21,7 @@ app.use(cors({
 }));
 app.use(urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 app.use(sessionMiddleware);
 // app.use(express.static(path.join(__dirname, 'public')));
 
