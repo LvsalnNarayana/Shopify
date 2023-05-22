@@ -27,6 +27,7 @@ app.use(sessionMiddleware);
 
 app.get('/', asyncHandler(async (req, res, next) => {
     var cookies = req.cookies;
+    console.log(cookies);
     if (cookies !== undefined && cookies['utk'] !== null && cookies['utk'] !== undefined) {
         let session_id = cookies["utk"].split(".")[0].split(":")[1];
         store.get(session_id, (err, data) => {
