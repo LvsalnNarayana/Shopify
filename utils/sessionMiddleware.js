@@ -9,7 +9,7 @@ export const store = new MongoDBStore({
 });
 export const sessionMiddleware = session({
     cookie: {
-        secure: false,
+        secure: true,
         maxAge: 24 * 60 * 60 * 1000,
         httpOnly: false,
     },
