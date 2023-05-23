@@ -54,7 +54,15 @@ app.get('/', asyncHandler(async (req, res, next) => {
         res.status(404).send({ cookie: false, message: "session Not Found" });
     }
 }));
+
 registerSocket(server);
 
-
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('Unhandled Rejection:', reason);
+    // Handle the error or perform any necessary cleanup
+});
+process.on('uncaughtException', (error) => {
+    console.error('Uncaught Exception:', error);
+    // Handle the error or perform any necessary cleanup
+});
 export default server;
