@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/b7f59759-4472-46bf-8f6e-c6077b069189/resourceGroups/resource-1/providers/Microsoft.Web/sites/shopify-api",
+    "appService.deploySubpath": "."
+}

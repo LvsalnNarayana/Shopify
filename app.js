@@ -16,7 +16,7 @@ var app = express();
 var server = createServer(app);
 
 app.use(cors({
-    origin: 'http://localhost:4200',
+    origin: '*',
     credentials: true,
 }));
 app.use(urlencoded({ extended: true }));
@@ -24,7 +24,9 @@ app.use(cookieParser());
 // app.use(bodyParser.json());
 app.use(sessionMiddleware);
 // app.use(express.static(path.join(__dirname, 'public')));
-
+console.log("hello this is running");
+console.log("____store_____");
+console.log(store);
 app.get('/', asyncHandler(async (req, res, next) => {
     var cookies = req.cookies;
     console.log(cookies);
