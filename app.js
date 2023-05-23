@@ -9,7 +9,7 @@ import connectDB from "./utils/connectDB.js";
 import asyncHandler from 'express-async-handler';
 import registerSocket from './utils/RegisterSocket.js';
 
-dotenv.config();
+// dotenv.config();
 connectDB();
 
 var app = express();
