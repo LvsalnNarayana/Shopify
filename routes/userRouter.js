@@ -3,7 +3,7 @@ import { UserController } from "../controller/userController.js";
 
 const userRouter = (socket) => {
     const userController = new UserController(socket);
-    const userId = socket.request.session.user.id;
+    const userId = socket?.request?.session?.user?.id;
     socket.on(userRoutes.POST_CREATE_USER_REQUEST, (data) => {
         userController.POST_CREATE_USER(data);
     });
