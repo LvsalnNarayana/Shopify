@@ -18,7 +18,6 @@ const registerSocket = (server) => {
         sessionMiddleware(socket.request, {}, next);
     });
     io.on('connection', (socket) => {
-        console.log(socket);
         AuthRouter(socket);
         productRouter(socket);
         if (socket.request.session.user !== null) {
