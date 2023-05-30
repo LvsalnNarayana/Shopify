@@ -8,7 +8,7 @@ const connected_users = new Map();
 
 const registerSocket = (server) => {
     const io = new Server(server, {
-        path:'/',
+        path:'/socket.io',
         cors: {
             methods: ['GET', 'POST', 'UPDATE', 'DELETE']
         },
