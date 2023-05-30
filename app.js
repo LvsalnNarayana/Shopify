@@ -14,10 +14,10 @@ connectDB();
 var app = express();
 var server = createServer(app);
 
-app.use(cors({
-    origin: '*',
-    credentials: true,
-}));
+// app.use(cors({
+//     origin: 'http://localhost:5000',
+//     credentials: true,
+// }));
 app.use(urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(sessionMiddleware);
@@ -26,11 +26,8 @@ app.use(sessionMiddleware);
 
 app.get('/', asyncHandler(async (req, res, next) => {
     var cookies = req.cookies;
-    console.log(cookies);
     if (cookies !== undefined && cookies['utk'] !== null && cookies['utk'] !== undefined) {
-        console.log(req.sessionID);
         store.get(req.sessionID, (err, data) => {
-            console.log(data);
             if (data !== null && data !== undefined) {
                 if (req.session.cookie.expires.getTime() > new Date().getTime()) {
                     res.status(200).send({ cookie: true, message: "Session Connected" });

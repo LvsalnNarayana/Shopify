@@ -8,10 +8,9 @@ const connected_users = new Map();
 
 const registerSocket = (server) => {
     const io = new Server(server, {
+        path:'/',
         cors: {
-            origin: true,
-            methods: ['GET', 'POST', 'UPDATE', 'DELETE'],
-            credentials: true,
+            methods: ['GET', 'POST', 'UPDATE', 'DELETE']
         },
         credentials: true
     });
@@ -19,6 +18,7 @@ const registerSocket = (server) => {
         sessionMiddleware(socket.request, {}, next);
     });
     io.on('connection', (socket) => {
+        console.log(socket);
         AuthRouter(socket);
         productRouter(socket);
         if (socket.request.session.user !== null) {
